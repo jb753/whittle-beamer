@@ -8,94 +8,77 @@
 %%%%%%%%%%%%%%%%%%%
 
 % Use Beamer and the Cambridge theme
-\documentclass{beamer}
+% option [unknownkeysallowed] is required to compile on my windows machine
+\documentclass[unknownkeysallowed]{beamer}
 \usetheme{cambridge}
 
-% New slide numbers for the appendix
-\usepackage{appendixnumberbeamer}
+% Required packages
+\usepackage{appendixnumberbeamer} % New slide numbers for the appendix
+\usepackage{helvet} % helvetica font
+\usepackage[T1]{fontenc} % proper hyphenation in foreign languages
 
-\usepackage{amssymb}
+% Optional packages
+\usepackage{amssymb} % Extra maths symbols
+\usepackage{siunitx}
 
-% helvetica font
-\usepackage{helvet}
+% Miscellaneous declarations
+\setlength\fboxrule{1pt} % thick line around boxed text
+\usefonttheme[onlymath]{serif} % equations in black
+\sisetup{range-units=single} % only one unit in a numerical range
+\sisetup{math-rm = \ensuremath}
+\setbeamercovered{transparent}
 
-% equations in black
-\usefonttheme[onlymath]{serif}
+% Define a command for absolute positioning
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
 
-% this package ensures words with umlauts etc. in are properly hyphenated!
-\usepackage[T1]{fontenc}
-
-% footer reference box definition
+% Define footer reference box
+% Two-line
 \usepackage[absolute,overlay]{textpos}
 \newcommand{\footreftwo}[1]{%
  \begin{textblock*}{7.8cm}(2.75cm,8.54cm)%
     \vspace{0.05em}\flushleft \colorlet{saved}{.}\color{white} \tiny #1 \color{saved}
   \end{textblock*}
 }
-
+% Three-line
 \newcommand{\footrefthree}[1]{%
  \begin{textblock*}{7.8cm}(2.75cm,8.43cm)%
     \vspace{0.05em}\flushleft \colorlet{saved}{.}\color{white} \tiny #1 \color{saved}
   \end{textblock*}
 }
 
-
-% redefinitions for vertical centering of list items
-% still need extra vfills sometimes
-%\let\olditem\item
-%\renewcommand{\item}{\setlength{\itemsep}{\fill}\olditem}
-
-%%%%%%%%%%%%%%%%%%%%%
-% OPTIONAL PACKAGES %
-%%%%%%%%%%%%%%%%%%%%%
-
-% Personal packages
-\usepackage{siunitx}
-\sisetup{range-units=single}
-
-% Personal TeX macros
+% Personal macros
 \newcommand{\etal}{\emph{et al.\@} }
-\newcommand{\BR}{\mathit{BR}}
-\newcommand{\IR}{\mathit{IR}}
-\newcommand{\DR}{\mathit{DR}}
+\newcommand{\BR}{\mathit{B\kern-.15em R}}
+\newcommand{\IR}{\mathit{I\kern-.15emR}}
+\newcommand{\DR}{\mathit{D\kern-.15emR}}
+\newcommand{\PR}{\mathit{P\kern-.15emR}}
 \newcommand{\Rey}{\mathit{Re}}
 \newcommand*\df{\mathop{}\!\mathrm{d}}
 \newcommand*\Df{\mathop{}\!\mathrm{D}}
-
-% for absolute positioning
-\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 % Author, Title, etc. %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Example presentation}
+\title{Example Presentation}
 
-%\subtitle{beansg}
-
-\author{\texorpdfstring{\textbf{James Brind}}{James Brind} \\ 
+\author{\normalsize\textbf{James Brind, Graham Pullan} \\ 
 Whittle Laboratory \\
 University of Cambridge \\
 Cambridge, CB3 0DY, UK \\
 Email: jb753@cam.ac.uk}
 
-\date{\today}
+\date{\normalsize\today}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% The main document %%%s%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 
-%
-% TITLE SLIDE
-%
 \begin{frame}
   \titlepage
 \end{frame}
 
-%
-% MOTIVATION
-%
 \begin{frame}{Example Figure}
   \centering
   \includegraphics[width=0.9\linewidth,trim={0 1.5cm 0 0},clip]{figures/blade_row_interactions.pdf}
