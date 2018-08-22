@@ -1,52 +1,58 @@
 % Whittle Laboratory Beamer Template
-% Based on the University of Cambridge Powerpoint Template
+% Based on the University of Cambridge beamer remplate by Rich Wareman 
 % J. Brind
-% May 2016
+% Sept 2018
 
 %%%%%%%%%%%%%%%%%%%
 % TEMPLATE SET UP %
 %%%%%%%%%%%%%%%%%%%
 
 % Use Beamer and the Cambridge theme
-% option [unknownkeysallowed] is required to compile on my windows machine
+% option [unknownkeysallowed] is required to compile on my windows box 
 \documentclass[unknownkeysallowed]{beamer}
 \usetheme{cambridge}
 
 % Required packages
 \usepackage{appendixnumberbeamer} % New slide numbers for the appendix
-\usepackage{helvet} % helvetica font
+\usepackage{helvet} % quasi-Arial font
 \usepackage[T1]{fontenc} % proper hyphenation in foreign languages
 
 % Optional packages
 \usepackage{amssymb} % Extra maths symbols
-\usepackage{siunitx}
+\usepackage{siunitx} % Units
 
 % Miscellaneous declarations
 \setlength\fboxrule{1pt} % thick line around boxed text
 \usefonttheme[onlymath]{serif} % equations in black
 \sisetup{range-units=single} % only one unit in a numerical range
-\sisetup{math-rm = \ensuremath}
-\setbeamercovered{transparent}
+\sisetup{math-rm = \ensuremath} 
+\setbeamercovered{transparent} % inactive text is semitransparent
 
 % Define a command for absolute positioning
 \def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
 
-% Define footer reference box
+% Define footer reference boxes
 % Two-line
 \usepackage[absolute,overlay]{textpos}
 \newcommand{\footreftwo}[1]{%
  \begin{textblock*}{7.8cm}(2.75cm,8.54cm)%
-    \vspace{0.05em}\flushleft \colorlet{saved}{.}\color{white} \tiny #1 \color{saved}
-  \end{textblock*}
+    \vspace{0.05em}\flushleft%
+    \colorlet{saved}{.}\color{white}%
+    \tiny #1%
+    \color{saved}%
+ \end{textblock*}
 }
 % Three-line
 \newcommand{\footrefthree}[1]{%
- \begin{textblock*}{7.8cm}(2.75cm,8.43cm)%
-    \vspace{0.05em}\flushleft \colorlet{saved}{.}\color{white} \tiny #1 \color{saved}
+  \begin{textblock*}{7.8cm}(2.75cm,8.43cm)%
+    \vspace{0.05em}\flushleft%
+    \colorlet{saved}{.}\color{white}%
+    \tiny #1%
+    \color{saved}%
   \end{textblock*}
 }
 
-% Personal macros
+% Nomenclature macros 
 \newcommand{\etal}{\emph{et al.\@} }
 \newcommand{\BR}{\mathit{B\kern-.15em R}}
 \newcommand{\IR}{\mathit{I\kern-.15emR}}
@@ -70,8 +76,7 @@ Email: jb753@cam.ac.uk}
 
 \date{\normalsize\today}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% The main document %%%s%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%% The main document %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -92,6 +97,14 @@ Email: jb753@cam.ac.uk}
     \item item
     \item item
    \alert{\item alert}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Overlays}
+  \begin{itemize}
+    \item<1,4> item
+    \item<2,4> item
+    \item<3,4> item
   \end{itemize}
 \end{frame}
 
@@ -133,7 +146,13 @@ Email: jb753@cam.ac.uk}
 \end{frame}
 
 \begin{frame}{Columns}
-  \dblcol{Bottom\vfill Top}{Test}
+  \dblcol{%
+    Bottom
+    \vfill
+    Top
+  }{%
+    Centre
+  }
 \end{frame}
 
 
